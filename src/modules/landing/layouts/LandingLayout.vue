@@ -5,11 +5,17 @@
       <div>
 
       </div>
-      <nav class="flex items-center h-10 ml-auto space-x-4 sm:space-x-6">
-        <RouterLink :to="{ name: 'home' }"> Home </RouterLink>
-        <RouterLink to="/features"> Features </RouterLink>
-        <RouterLink to="/pricing"> Pricing </RouterLink>
-        <RouterLink to="/contact"> Contact </RouterLink>
+      <nav class="flex flex-col items-end h-10 ml-auto space-x-4 sm:space-x-6">
+        <div class="space-x-4">
+          <RouterLink :to="{ name: 'home' }"> Home </RouterLink>
+          <RouterLink to="/features"> Features </RouterLink>
+          <RouterLink to="/pricing"> Pricing </RouterLink>
+          <RouterLink to="/contact"> Contact </RouterLink>
+        </div>
+        <div class="space-x-4">
+          <RouterLink to="/pokemon/1"> Pokemons </RouterLink>
+          <RouterLink to="/auth"> Login </RouterLink>
+        </div>
       </nav>
     </header>
     <!-- Fin Header -->

@@ -1,3 +1,4 @@
+import NotFound404 from '@/modules/common/pages/NotFound404.vue';
 import HomePage from '@/modules/landing/pages/HomePage.vue';
 import { createRouter, createWebHistory } from 'vue-router';
 
@@ -29,8 +30,19 @@ export const router = createRouter({
           name: 'contact',
           component: () => import('@/modules/landing/pages/ContactPage.vue'),
         },
+        {
+          path: '/pokemon/:id',
+          name: 'pokemon',
+          props: (route) => {
+            const id = +route.params.id;
+
+            return isNaN(id) ? { id: 1 } : { id };
+          },
+          component: () => import('@/modules/pokemons/pages/PokemonPage.vue'),
+        },
       ],
     },
+
     {
       path: '/auth',
       redirect: '/login',
@@ -48,6 +60,12 @@ export const router = createRouter({
           component: () => import('@/modules/auth/pages/RegisterPager.vue'),
         },
       ],
+    },
+
+    {
+      path: '/:pathMatch(.*)*',
+      // redirect: '/',
+      component: NotFound404,
     },
   ],
 });
